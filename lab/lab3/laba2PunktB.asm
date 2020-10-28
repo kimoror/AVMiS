@@ -1,8 +1,8 @@
 %include "io64.inc"
 
 section .data 
-Vec1: Times 60 dd  1, 2, 3, 4, 5
-Vec2: Times 60 dd -1, -2, -3, -4, -5
+Vec1: Times 60 dd  13, 23 , 3, 4, 5
+Vec2: Times 60 dd -12, -2, -3, -4, -5
 sum1 dd 0; sum1 хранит сумму младших битов
 sum2 dd 0; sum2 хранит сумму старших битов
 
@@ -23,9 +23,11 @@ CMAIN:
     mov edx, [Vec2 + (ecx - 1)*4]
     mul edx
     
+    
     mov ebx, [sum1]
-    add ebx, eax;так как eax хранит младшие биты
+    add ebx, eax;так как eax хранит младшие биты     
     mov [sum1], ebx
+   
     
     mov ebx, [sum2]
     adc ebx, edx;так как edx хранит старшие биты
